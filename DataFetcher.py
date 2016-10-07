@@ -15,10 +15,10 @@ class DataFetcher:
     def __init__(self, filename):
         self.dataFile = filename
 
-    def initProcessing(self):
+    def initProcessing(self, trainFile, testFile):
         self.readData()
         self.splitTrainTest()
-        self.saveFinalTrainAndTest()
+        self.saveFinalTrainAndTest(trainFile, testFile)
 
     def readData(self):
         self.totalData = pd.read_csv(self.dataFile, sep=",", skiprows=0, header=0, index_col=0, parse_dates=True,

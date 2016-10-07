@@ -15,6 +15,10 @@ class DataFetcher:
     def __init__(self, filename):
         self.dataFile = filename
 
+    def __init__(self, trainFile, testFile):
+        self.trainData = pd.read_pickle(trainFile)
+        self.testData = pd.read_pickle(testFile)
+
     def initProcessing(self, trainFile, testFile):
         self.readData()
         self.splitTrainTest()

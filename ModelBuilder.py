@@ -19,7 +19,7 @@ class Model:
     testData = 0
     tSteps = 1
     batchSize = 20
-    numFeatures = 2
+    numFeatures = 1
     model = 0
     epochs = 30 #100
     gamma = 0.95 #since the reward can be several time steps away, make gamma high
@@ -52,8 +52,8 @@ class Model:
         '''
 
     def getState(self, record):
-        print record
-        return record
+        print record.values
+        return record.values
 
     def setModel(self):
         self.model = Sequential()

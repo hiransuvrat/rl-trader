@@ -52,6 +52,7 @@ class Model:
         '''
 
     def getState(self, record):
+        print record
         return record
 
     def setModel(self):

@@ -12,16 +12,17 @@ class DataFetcher:
     scaler = 0
     totalData = 0
     CLOSE = 'close'
-    def __init__(self, filename):
+    def __init__(self, filename, trainFile, testFile, splitPercentage = .8):
         self.dataFile = filename
+        self.initProcessing(trainFile, testFile, splitPercentage)
 
-    def __init__(self, trainFile, testFile):
+    def readInit(self, trainFile, testFile):
         self.trainData = pd.read_pickle(trainFile)
         self.testData = pd.read_pickle(testFile)
 
-    def initProcessing(self, trainFile, testFile):
+    def initProcessing(self, trainFile, testFile, splitPercentage):
         self.readData()
-        self.splitTrainTest()
+        self.splitTrainTest(splitPercentage = splitPercentage)
         self.saveFinalTrainAndTest(trainFile, testFile)
 
     def readData(self):

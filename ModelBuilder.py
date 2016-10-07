@@ -52,7 +52,7 @@ class Model:
         '''
 
     def getState(self, record):
-        return self.record
+        return record
 
     def setModel(self):
         self.model = Sequential()

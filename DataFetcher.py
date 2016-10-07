@@ -10,6 +10,7 @@ class DataFetcher:
     testData = 0
     features = 0
     scaler = 0
+    totalData = 0
     CLOSE = 'close'
     def __init__(self, filename):
         self.dataFile = filename
@@ -20,7 +21,7 @@ class DataFetcher:
         self.saveFinalTrainAndTest()
 
     def readData(self):
-        totalData = pd.read_csv(self.dataFile, sep=",", skiprows=0, header=0, index_col=0, parse_dates=True,
+        self.totalData = pd.read_csv(self.dataFile, sep=",", skiprows=0, header=0, index_col=0, parse_dates=True,
                                 names=['date', 'open', 'high', 'low', self.CLOSE, 'vol', 'total'])
 
 
@@ -31,8 +32,8 @@ class DataFetcher:
         :return:
         '''
         trainSize = int(len(self.totalData) * (1-splitPercentage))
-        self.trainData = totalData.iloc[:trainSize,]
-        self.testData = totalData.iloc[trainSize:,]
+        self.trainData = self.totalData.iloc[:trainSize,]
+        self.testData = self.totalData.iloc[trainSize:,]
 
     def fetchCompleteTrainData(self):
         '''

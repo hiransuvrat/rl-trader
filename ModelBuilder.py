@@ -37,7 +37,7 @@ class Model:
         self.priceData = self.trainData[self.CLOSE]
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
         self.signal.fillna(value=0, inplace=True)
-        self.initialStateTrain = self.getState(self.trainData[0])
+        self.initialStateTrain = self.getState(self.trainData.ix[:,0])
 
     def setTrainData(self, dataFetcher):
         self.trainData = dataFetcher.fetchCompleteTrainData()
@@ -98,7 +98,7 @@ class Model:
 
     def testModel(self):
         for i in range(len(self.testData)):
-            state = self.getState(self.testData[i])
+            state = self.getState(self.testData.ix[:, i])
             qVal = self.model.predict(state, batch_size=1)
             action = np.argmax(qVal)
             print(qVal)
@@ -130,7 +130,7 @@ class Model:
 
         timeStep += 1
         terminalState = 0
-        state = self.getState(self.trainData[timeStep])
+        state = self.getState(self.trainData.ix[:, timeStep])
         if timeStep + 1 == len(self.trainData):
             terminalState = 1
             self.signal.loc[timeStep] = 0

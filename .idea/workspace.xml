@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f60ce79e-15a6-4277-8c69-5b07f663736d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataFetcher.py" afterPath="$PROJECT_DIR$/DataFetcher.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trade.py" afterPath="$PROJECT_DIR$/Trade.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ModelBuilder.py" afterPath="$PROJECT_DIR$/ModelBuilder.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rl-trader.iws" />
@@ -46,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Trade.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Trade.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trade.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1923077">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="e#23#53#0" expanded="true" />
@@ -58,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModelBuilder.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ModelBuilder.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ModelBuilder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5555556">
+              <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
               <folding>
                 <element signature="e#23#58#0" expanded="true" />
               </folding>
@@ -99,9 +98,9 @@
       <list>
         <option value="$PROJECT_DIR$/ModelTrade.py" />
         <option value="$PROJECT_DIR$/backtest.py" />
-        <option value="$PROJECT_DIR$/ModelBuilder.py" />
         <option value="$PROJECT_DIR$/DataFetcher.py" />
         <option value="$PROJECT_DIR$/Trade.py" />
+        <option value="$PROJECT_DIR$/ModelBuilder.py" />
       </list>
     </option>
   </component>
@@ -336,7 +335,13 @@
       <option name="project" value="LOCAL" />
       <updated>1475837608774</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bug">
+      <created>1475837999793</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1475837999793</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -404,16 +409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModelBuilder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#23#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ModelTrade.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.333333">
@@ -434,10 +429,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Trade.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1923077">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="e#23#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModelBuilder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5555556">
+          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+          <folding>
+            <element signature="e#23#58#0" expanded="true" />
           </folding>
         </state>
       </provider>

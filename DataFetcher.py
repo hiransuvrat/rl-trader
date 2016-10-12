@@ -11,8 +11,8 @@ class DataFetcher:
     features = 0
     scaler = 0
     totalData = 0
-    trainPriceFile = 0
-    testPriceFile = 0
+    trainPriceFile = ''
+    testPriceFile = ''
     CLOSE = 'close'
     def __init__(self, filename, trainFile, testFile, splitPercentage = .8):
         self.dataFile = filename

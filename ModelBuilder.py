@@ -34,7 +34,6 @@ class Model:
     def __init__(self, dataFetcher, filename):
         self.setTrainData(dataFetcher)
         self.setTrainData(dataFetcher)
-        print(self.trainData)
         self.priceData = pd.read_csv(filename, sep=",", skiprows=0, header=0, index_col=0, parse_dates=True,
                                 names=['date', 'open', 'high', 'low', self.CLOSE, 'vol', 'total'], usecols=[self.CLOSE])
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
@@ -78,7 +77,6 @@ class Model:
             timeStep = 1
             state = self.initialStateTrain
             while (status == 1):
-                print state
                 qVal = self.model.predict(state, batch_size=1)
 
                 if (self.chooseExplore()):

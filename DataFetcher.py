@@ -11,8 +11,8 @@ class DataFetcher:
     features = 0
     scaler = 0
     totalData = 0
-    trainPrice = 0
-    testPrice = 0
+    trainPriceFile = 0
+    testPriceFile = 0
     CLOSE = 'close'
     def __init__(self, filename, trainFile, testFile, splitPercentage = .8):
         self.dataFile = filename
@@ -27,8 +27,8 @@ class DataFetcher:
         self.splitTrainTest(splitPercentage = splitPercentage)
         self.trainPrice = trainFile + 'price'
         self.testPrice = testFile + 'price'
-        self.trainPrice.to_csv(self.trainPrice, columns=[self.CLOSE])
-        self.testPrice.to_csv(self.testPrice, columns=[self.CLOSE])
+        self.trainData.to_csv(self.trainPriceFile, columns=[self.CLOSE])
+        self.testData.to_csv(self.testPriceFile, columns=[self.CLOSE])
         self.buildFeatures()
         self.saveFinalTrainAndTest(trainFile, testFile)
 

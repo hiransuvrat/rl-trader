@@ -121,7 +121,6 @@ class Model:
                         y = np.zeros((1,self.noActions))
                         y[:] = old_qval[:]
                         if terminalState == 0: #non-terminal state
-                            print '1', reward, '2', self.gamma, '3', maxQ
                             update = (reward + (self.gamma * maxQ))
                         else: #terminal state
                             update = reward
@@ -163,14 +162,15 @@ class Model:
         reward = 0
 
         if eval == False:
-            reward = (self.signal[timeStep-1:timeStep] - self.signal[timeStep-2:timeStep])
+            reward = (self.priceData[timeStep-1:timeStep] - self.priceData[timeStep-2:timeStep])
+            print 'reawrd', reward
             #bt = Backtest(pd.Series(data=[x for x in self.trainData[timeStep-2:timeStep]],
             #                        index=self.signal[timeStep-2:timeStep].index.values),
             #              self.signal[timeStep-2:timeStep], initialCash = 100000, signalType='capital')
             #reward = ((bt.data['price'].iloc[-1] - bt.data['price'].iloc[-2])*bt.data['shares'].iloc[-1])
 
         if terminalState == 1 and eval:
-            reward = (self.signal[timeStep-1:timeStep] - self.signal[timeStep-2:timeStep])
+            reward = (self.priceData[timeStep-1:timeStep] - self.priceData[timeStep-2:timeStep])
             #bt = Backtest(pd.Series(data=[x for x in self.trainData], index=self.signal.index.values),
             #                  self.signal, signalType='shares')
             #reward = bt.pnl.iloc[-1]
@@ -191,7 +191,7 @@ class Model:
         state = self.getState(self.trainData[timeStep, :])
         if timeStep + 1 == len(self.trainData):
             terminalState = 1
-            self.signal.loc[timeStep] = 0
+            self.signal.loc[timeStep] = 1
             return state, timeStep, terminalState
 
         if action == 1:

@@ -25,8 +25,8 @@ class DataFetcher:
     def initProcessing(self, trainFile, testFile, splitPercentage):
         self.readData()
         self.splitTrainTest(splitPercentage = splitPercentage)
-        self.trainPrice = trainFile + 'price'
-        self.testPrice = testFile + 'price'
+        self.trainPriceFile = trainFile + 'price'
+        self.testPriceFile = testFile + 'price'
         self.trainData.to_csv(self.trainPriceFile, columns=[self.CLOSE])
         self.testData.to_csv(self.testPriceFile, columns=[self.CLOSE])
         self.buildFeatures()

@@ -31,11 +31,12 @@ class Model:
     noActions = 4
 
 
-    def __init__(self, dataFetcher):
+    def __init__(self, dataFetcher, filename):
         self.setTrainData(dataFetcher)
         self.setTrainData(dataFetcher)
         print(self.trainData)
-        self.priceData = self.trainData[[self.CLOSE]]
+        self.priceData = pd.read_csv(filename, sep=",", skiprows=0, header=0, index_col=0, parse_dates=True,
+                                names=['date', 'open', 'high', 'low', self.CLOSE, 'vol', 'total'], usecols=[self.CLOSE])
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
         self.signal.fillna(value=0, inplace=True)
         self.initialStateTrain = self.getState(self.trainData.ix[0,:])

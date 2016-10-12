@@ -28,7 +28,7 @@ class Model:
     replay = []
     learningProgress = []
     signal = 0
-    noActions = 4
+    noActions = 2
 
 
     def __init__(self, dataFetcher, filename):
@@ -63,7 +63,7 @@ class Model:
                stateful=False))
         self.model.add(Dropout(0.5))
 
-        self.model.add(Dense(4, init='lecun_uniform'))
+        self.model.add(Dense(self.noActions, init='lecun_uniform'))
         self.model.add(Activation('linear')) #linear output so we can have range of real-valued outputs
 
         rms = RMSprop()
@@ -141,10 +141,9 @@ class Model:
 
         if action == 1:
             self.signal.loc[timeStep] = 1
-        elif action == 2:
-            self.signal.loc[timeStep] = -1
         else:
-            self.signal.loc[timeStep] = 0
+            self.signal.loc[timeStep] = -1
+
 
         return state, timeStep, terminalState
 

@@ -121,11 +121,10 @@ class Model:
                         y = np.zeros((1,self.noActions))
                         y[:] = old_qval[:]
                         if terminalState == 0: #non-terminal state
-                            print reward, self.gamma, maxQ
+                            print '1', reward, '2', self.gamma, '3', maxQ
                             update = (reward + (self.gamma * maxQ))
                         else: #terminal state
                             update = reward
-                        print "hel", update
                         y[0][action] = update
                         #print(time_step, reward, terminal_state)
                         X_train.append(old_state)

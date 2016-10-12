@@ -162,9 +162,7 @@ class Model:
         reward = 0
 
         if eval == False:
-            print self.priceData
             reward = self.priceData.ix[timeStep-1, [self.CLOSE]] - self.priceData.ix[timeStep-2, [self.CLOSE]]
-            print 'reawrd', reward
             #bt = Backtest(pd.Series(data=[x for x in self.trainData[timeStep-2:timeStep]],
             #                        index=self.signal[timeStep-2:timeStep].index.values),
             #              self.signal[timeStep-2:timeStep], initialCash = 100000, signalType='capital')

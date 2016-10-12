@@ -60,8 +60,8 @@
       <file leaf-file-name="ModelBuilder.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ModelBuilder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26666668">
-              <caret line="113" column="32" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.5555556">
+              <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
               <folding>
                 <element signature="e#23#58#0" expanded="true" />
               </folding>
@@ -587,7 +587,13 @@
       <option name="project" value="LOCAL" />
       <updated>1476265369467</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="bug">
+      <created>1476269632755</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1476269632755</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -733,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ModelBuilder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26666668">
-          <caret line="113" column="32" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.5555556">
+          <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
           <folding>
             <element signature="e#23#58#0" expanded="true" />
           </folding>

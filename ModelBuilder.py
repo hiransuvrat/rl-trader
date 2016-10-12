@@ -124,6 +124,7 @@ class Model:
                             update = (reward + (self.gamma * maxQ))
                         else: #terminal state
                             update = reward
+                        print update
                         y[0][action] = update
                         #print(time_step, reward, terminal_state)
                         X_train.append(old_state)

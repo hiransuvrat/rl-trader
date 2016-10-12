@@ -104,8 +104,8 @@ class Model:
             state = self.getState(self.testData[i, :])
             qVal = self.model.predict(state, batch_size=1)
             action = np.argmax(qVal)
-            qValRes0.append(qVal[0])
-            qValRes1.append(qVal[1])
+            qValRes0.append(qVal[0, 0])
+            qValRes1.append(qVal[0, 1])
             print(qVal, action)
         self.result = pd.DataFrame(data={'0':qValRes0, '1':qValRes1})
         print self.result

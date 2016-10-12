@@ -34,7 +34,7 @@ class Model:
     def __init__(self, dataFetcher, filename):
         self.setTrainData(dataFetcher)
         self.setTestData(dataFetcher)
-        self.priceData = pd.read_csv(dataFetcher.trainPrice)
+        self.priceData = pd.read_csv(dataFetcher.trainPriceFile)
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
         self.signal.fillna(value=0, inplace=True)
         self.initialStateTrain = self.getState(self.trainData[0,:])

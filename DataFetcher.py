@@ -79,6 +79,6 @@ class DataFetcher:
         Save final files for reusing
         :return:
         '''
-        self.trainData.to_pickle(trainFile)
-        self.testData.to_pickle(testFile)
+        pd.DataFrame(self.trainData).to_pickle(trainFile)
+        pd.DataFrame(self.testData).to_pickle(testFile)
         return

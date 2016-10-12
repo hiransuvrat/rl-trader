@@ -98,11 +98,12 @@ class Model:
             self.epsilon -= (1.0/self.epochs)
 
     def testModel(self):
+        print "testModel"
         for i in range(len(self.testData)):
             state = self.getState(self.testData[i, :])
             qVal = self.model.predict(state, batch_size=1)
             action = np.argmax(qVal)
-            print(qVal)
+            print(qVal, action)
 
     def getReward(self, newState, timeStep, action, terminalState, eval=False, epoch=0):
         reward = 0

@@ -8,4 +8,4 @@ dataFetcher = DataFetcher('data/nifty_1500.csv', 'data/train.pkl', 'data/test.pk
 modelBuilder = Model(dataFetcher, inputFile)
 modelBuilder.setModel()
 modelBuilder.trainModel()
-modelBuilder.trainModel()
+modelBuilder.testModel()

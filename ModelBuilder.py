@@ -29,13 +29,12 @@ class Model:
     learningProgress = []
     signal = 0
     noActions = 2
-
-
+    testPrice = 0
+    result = 0
     def __init__(self, dataFetcher, filename):
         self.setTrainData(dataFetcher)
         self.setTestData(dataFetcher)
-        self.priceData = pd.read_csv(filename, sep=",", skiprows=0, header=0, index_col=0, parse_dates=True,
-                                names=['date', 'open', 'high', 'low', self.CLOSE, 'vol', 'total'], usecols=[self.CLOSE])
+        self.priceData = pd.read_csv(dataFetcher.trainPrice)
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
         self.signal.fillna(value=0, inplace=True)
         self.initialStateTrain = self.getState(self.trainData[0,:])
@@ -98,12 +97,18 @@ class Model:
             self.epsilon -= (1.0/self.epochs)
 
     def testModel(self):
+        testSize = len(self.testData)
+        qValRes0 = []
+        qValRes1 = []
         for i in range(len(self.testData)):
             state = self.getState(self.testData[i, :])
             qVal = self.model.predict(state, batch_size=1)
             action = np.argmax(qVal)
+            qValRes0.append(qVal[0])
+            qValRes1.append(qVal[1])
             print(qVal, action)
-
+        self.result = pd.DataFrame(data={'0':qValRes0, '1':qValRes1})
+        print self.result
     def getReward(self, newState, timeStep, action, terminalState, eval=False, epoch=0):
         reward = 0
 

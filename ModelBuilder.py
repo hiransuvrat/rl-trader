@@ -33,7 +33,7 @@ class Model:
 
     def __init__(self, dataFetcher, filename):
         self.setTrainData(dataFetcher)
-        self.setTrainData(dataFetcher)
+        self.setTestData(dataFetcher)
         self.priceData = pd.read_csv(filename, sep=",", skiprows=0, header=0, index_col=0, parse_dates=True,
                                 names=['date', 'open', 'high', 'low', self.CLOSE, 'vol', 'total'], usecols=[self.CLOSE])
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
@@ -98,7 +98,6 @@ class Model:
             self.epsilon -= (1.0/self.epochs)
 
     def testModel(self):
-        print "testModel"
         for i in range(len(self.testData)):
             state = self.getState(self.testData[i, :])
             qVal = self.model.predict(state, batch_size=1)

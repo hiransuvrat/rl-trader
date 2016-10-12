@@ -163,7 +163,7 @@ class Model:
 
         if eval == False:
             print self.priceData
-            reward = self.priceData[timeStep-1] - self.priceData[timeStep-2]
+            reward = self.priceData.ix[timeStep-1, self.CLOSE] - self.priceData[timeStep-2, self.CLOSE]
             print 'reawrd', reward
             #bt = Backtest(pd.Series(data=[x for x in self.trainData[timeStep-2:timeStep]],
             #                        index=self.signal[timeStep-2:timeStep].index.values),
@@ -171,7 +171,7 @@ class Model:
             #reward = ((bt.data['price'].iloc[-1] - bt.data['price'].iloc[-2])*bt.data['shares'].iloc[-1])
 
         if terminalState == 1 and eval:
-            reward = self.priceData[timeStep-1] - self.priceData[timeStep-2]
+            reward = self.priceData[timeStep-1, self.CLOSE] - self.priceData[timeStep-2, self.CLOSE]
             #bt = Backtest(pd.Series(data=[x for x in self.trainData], index=self.signal.index.values),
             #                  self.signal, signalType='shares')
             #reward = bt.pnl.iloc[-1]

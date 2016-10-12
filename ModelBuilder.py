@@ -121,6 +121,7 @@ class Model:
                         y = np.zeros((1,self.noActions))
                         y[:] = old_qval[:]
                         if terminalState == 0: #non-terminal state
+                            print reward, self.gamma, maxQ
                             update = (reward + (self.gamma * maxQ))
                         else: #terminal state
                             update = reward

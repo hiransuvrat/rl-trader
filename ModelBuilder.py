@@ -63,7 +63,7 @@ class Model:
                input_shape=(1, self.numFeatures),
                return_sequences=False,
                stateful=False))
-        self.model.add(Dropout(0.5))
+        #self.model.add(Dropout(0.5))
 
         self.model.add(Dense(self.noActions, init='lecun_uniform'))
         self.model.add(Activation('linear')) #linear output so we can have range of real-valued outputs
@@ -73,11 +73,15 @@ class Model:
         self.model.compile(loss='mse', optimizer=adam)
 
     def trainModel(self):
+        replay = []
+        buffer = 40
+        h = 0
         for i in range(self.epochs):
             status = 1
             terminalState = 0
             timeStep = 1
             state = self.initialStateTrain
+
             while (status == 1):
                 qVal = self.model.predict(state, batch_size=1)
 
@@ -92,8 +96,45 @@ class Model:
                 #Observe reward
                 reward = self.getReward(newState, timeStep, action, terminalState)
 
-                state = newState
-                if terminalState == 1:
+
+
+                                #Experience replay storage
+                if (len(replay) < buffer): #if buffer not filled, add to it
+                    replay.append((state, action, reward, newState))
+                    #print(time_step, reward, terminal_state)
+                else: #if buffer full, overwrite old values
+                    if (h < (buffer-1)):
+                        h += 1
+                    else:
+                        h = 0
+                    replay[h] = (state, action, reward, newState)
+                    #randomly sample our experience replay memory
+                    minibatch = random.sample(replay, self.batchSize)
+                    X_train = []
+                    y_train = []
+                    for memory in minibatch:
+                        #Get max_Q(S',a)
+                        old_state, action, reward, new_state = memory
+                        old_qval = self.model.predict(old_state, batch_size=1)
+                        newQ = self.model.predict(new_state, batch_size=1)
+                        maxQ = np.max(newQ)
+                        y = np.zeros((1,self.noActions))
+                        y[:] = old_qval[:]
+                        if terminalState == 0: #non-terminal state
+                            update = (reward + (self.gamma * maxQ))
+                        else: #terminal state
+                            update = reward
+                        y[0][action] = update
+                        #print(time_step, reward, terminal_state)
+                        X_train.append(old_state)
+                        y_train.append(y.reshape(self.noActions,))
+
+                    X_train = np.squeeze(np.array(X_train), axis=(1))
+                    y_train = np.array(y_train)
+                    self.model.fit(X_train, y_train, batch_size=self.batchSize, nb_epoch=1, verbose=0)
+
+                    state = newState
+                if terminalState == 1: #if reached terminal state, update epoch status
                     status = 0
 
         if self.epsilon > 0.1: #decrement epsilon over time

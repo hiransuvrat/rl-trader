@@ -60,8 +60,8 @@
       <file leaf-file-name="ModelBuilder.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ModelBuilder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4">
-              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.53333336">
+              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
               <folding>
                 <element signature="e#23#58#0" expanded="true" />
               </folding>
@@ -467,7 +467,31 @@
       <option name="project" value="LOCAL" />
       <updated>1476256342252</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="bug">
+      <created>1476256468703</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1476256468703</updated>
+    </task>
+    <task id="LOCAL-00028" summary="bug">
+      <created>1476256640103</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1476256640103</updated>
+    </task>
+    <task id="LOCAL-00029" summary="bug">
+      <created>1476256983233</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1476256983234</updated>
+    </task>
+    <task id="LOCAL-00030" summary="bug">
+      <created>1476257052560</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1476257052560</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -613,8 +637,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ModelBuilder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.53333336">
+          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
           <folding>
             <element signature="e#23#58#0" expanded="true" />
           </folding>

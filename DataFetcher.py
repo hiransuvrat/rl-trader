@@ -66,6 +66,8 @@ class DataFetcher:
         self.trainData['diff'] = self.trainData['diff'].fillna(0)
         self.scaler = preprocessing.StandardScaler()
         self.trainData = self.scaler.fit_transform(self.trainData)
+        self.testData['diff'] = self.testData[[self.CLOSE]].diff(periods=1, axis=0)
+        self.testData['diff'] = self.testData['diff'].fillna(0)
         self.testData = self.scaler.transform(self.testData)
         return
 

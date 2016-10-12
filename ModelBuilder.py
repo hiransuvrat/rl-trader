@@ -19,7 +19,7 @@ class Model:
     testData = 0
     tSteps = 1
     batchSize = 20
-    numFeatures = 1
+    numFeatures = 2
     model = 0
     epochs = 30 #100
     gamma = 0.95 #since the reward can be several time steps away, make gamma high

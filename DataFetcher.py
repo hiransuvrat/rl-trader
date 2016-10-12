@@ -62,7 +62,7 @@ class DataFetcher:
         :return:
         '''
         self.trainData = self.trainData[[self.CLOSE]]
-        self.trainData['diff'] = self.trainData[self.CLOSE].diff(periods=1, axis=0)
+        self.trainData['diff'] = self.trainData[[self.CLOSE]].diff(periods=1, axis=0)
         self.trainData['diff'] = self.trainData['diff'].fillna(0)
         self.scaler = preprocessing.StandardScaler()
         self.trainData = self.scaler.fit_transform(self.trainData)

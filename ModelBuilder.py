@@ -110,15 +110,17 @@ class Model:
         reward = 0
 
         if eval == False:
-            bt = Backtest(pd.Series(data=[x for x in self.trainData[timeStep-2:timeStep]],
-                                    index=self.signal[timeStep-2:timeStep].index.values),
-                          self.signal[timeStep-2:timeStep], initialCash = 100000, signalType='capital')
-            reward = ((bt.data['price'].iloc[-1] - bt.data['price'].iloc[-2])*bt.data['shares'].iloc[-1])
+            reward = (self.signal[timeStep-1:timeStep] - self.signal[timeStep-2:timeStep])
+            #bt = Backtest(pd.Series(data=[x for x in self.trainData[timeStep-2:timeStep]],
+            #                        index=self.signal[timeStep-2:timeStep].index.values),
+            #              self.signal[timeStep-2:timeStep], initialCash = 100000, signalType='capital')
+            #reward = ((bt.data['price'].iloc[-1] - bt.data['price'].iloc[-2])*bt.data['shares'].iloc[-1])
 
         if terminalState == 1 and eval:
-            bt = Backtest(pd.Series(data=[x for x in self.trainData], index=self.signal.index.values),
-                              self.signal, signalType='shares')
-            reward = bt.pnl.iloc[-1]
+            reward = (self.signal[timeStep-1:timeStep] - self.signal[timeStep-2:timeStep])
+            #bt = Backtest(pd.Series(data=[x for x in self.trainData], index=self.signal.index.values),
+            #                  self.signal, signalType='shares')
+            #reward = bt.pnl.iloc[-1]
 
         return reward
 

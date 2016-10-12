@@ -23,6 +23,7 @@ class DataFetcher:
     def initProcessing(self, trainFile, testFile, splitPercentage):
         self.readData()
         self.splitTrainTest(splitPercentage = splitPercentage)
+        self.buildFeatures()
         self.saveFinalTrainAndTest(trainFile, testFile)
 
     def readData(self):

@@ -37,7 +37,6 @@ class Model:
         self.priceData = self.trainData[self.CLOSE]
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
         self.signal.fillna(value=0, inplace=True)
-        print self.trainData.ix[0,:]
         self.initialStateTrain = self.getState(self.trainData.ix[0,:])
 
     def setTrainData(self, dataFetcher):

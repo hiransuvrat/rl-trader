@@ -9,3 +9,5 @@ modelBuilder = Model(dataFetcher, inputFile)
 modelBuilder.setModel()
 modelBuilder.trainModel()
 modelBuilder.testModel()
+modelBuilder.doTestCompare()
+print modelBuilder.priceTestData

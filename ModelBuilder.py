@@ -31,7 +31,10 @@ class Model:
     noActions = 2
     testPrice = 0
     result = 0
+    dataFetcher = 0
+
     def __init__(self, dataFetcher, filename):
+        self.dataFetcher = dataFetcher
         self.setTrainData(dataFetcher)
         self.setTestData(dataFetcher)
         self.priceData = pd.read_csv(dataFetcher.trainPriceFile)
@@ -106,9 +109,14 @@ class Model:
             action = np.argmax(qVal)
             qValRes0.append(qVal[0, 0])
             qValRes1.append(qVal[0, 1])
-            print(qVal, action)
         self.result = pd.DataFrame(data={'0':qValRes0, '1':qValRes1})
-        print self.result
+
+    def doTestCompare(self):
+        self.priceTestData = pd.read_csv(self.dataFetcher.testPriceFile)
+        self.priceTestData = pd.concat([self.priceTestData, self.result], axis=1)
+
+
+
     def getReward(self, newState, timeStep, action, terminalState, eval=False, epoch=0):
         reward = 0
 

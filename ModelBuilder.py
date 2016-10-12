@@ -54,7 +54,7 @@ class Model:
         '''
 
     def getState(self, record):
-        return [record]
+        return [record.tolist()]
 
     def setModel(self):
         self.model = Sequential()

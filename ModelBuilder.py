@@ -37,6 +37,7 @@ class Model:
         self.priceData = self.trainData[self.CLOSE]
         self.signal = pd.Series(index=np.arange(len(self.trainData)))
         self.signal.fillna(value=0, inplace=True)
+        print self.trainData.ix[0,:]
         self.initialStateTrain = self.getState(self.trainData.ix[0,:])
 
     def setTrainData(self, dataFetcher):
@@ -131,7 +132,6 @@ class Model:
 
         timeStep += 1
         terminalState = 0
-        print self.trainData.ix[timeStep, :]
         state = self.getState(self.trainData.ix[timeStep, :])
         if timeStep + 1 == len(self.trainData):
             terminalState = 1

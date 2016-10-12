@@ -131,6 +131,7 @@ class Model:
 
         timeStep += 1
         terminalState = 0
+        print self.trainData.ix[timeStep, :]
         state = self.getState(self.trainData.ix[timeStep, :])
         if timeStep + 1 == len(self.trainData):
             terminalState = 1

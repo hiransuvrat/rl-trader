@@ -78,6 +78,7 @@ class Model:
             timeStep = 1
             state = self.initialStateTrain
             while (status == 1):
+                print state
                 qVal = self.model.predict(state, batch_size=1)
 
                 if (self.chooseExplore()):

@@ -58,7 +58,7 @@ class Model:
 
     def setModel(self):
         self.model = Sequential()
-        self.model.add(LSTM(2,
+        self.model.add(LSTM(4,
                input_shape=(1, self.numFeatures),
                return_sequences=False,
                stateful=False))
